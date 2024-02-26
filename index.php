@@ -10,10 +10,10 @@
     <main>
         <form action="index.php" method="post">
             <label>1. číslo: </label>
-            <input type="number" name="firstNumber"><br>
+            <input type="number" name="firstNumber" value="0"><br>
 
             <label>2. číslo: </label>
-            <input type="number" name="secondNumber"><br>
+            <input type="number" name="secondNumber" value="0"><br>
 
             <label>Operátory: </label>
             <select name="operator">
@@ -33,24 +33,28 @@
             $secondNumber = $_POST['secondNumber'];
             $operator = $_POST['operator'];
             $vysledek = 0;
+
+            if ($operator === "scitani"){
+                $vysledek = $firstNumber + $secondNumber;
+                echo "Výsledek: " . $vysledek;
+            } elseif ($operator === "odcitani"){
+                $vysledek = $firstNumber - $secondNumber;
+                echo "Výsledek: " . $vysledek;
+            } elseif ($operator === "nasobeni"){
+                $vysledek = $firstNumber * $secondNumber;
+                echo "Výsledek: " . $vysledek;
+            } elseif ($operator === "deleni"){
+                $vysledek = $firstNumber / $secondNumber;
+                echo "Výsledek: " . $vysledek;
+            }
+
         }
 
-        if ($operator === "scitani"){
-            $vysledek = $firstNumber + $secondNumber;
-            echo "Výsledek: " . $vysledek;
-        } elseif ($operator === "odcitani"){
-            $vysledek = $firstNumber - $secondNumber;
-            echo "Výsledek: " . $vysledek;
-        } elseif ($operator === "nasobeni"){
-            $vysledek = $firstNumber * $secondNumber;
-            echo "Výsledek: " . $vysledek;
-        } elseif ($operator === "deleni"){
-            $vysledek = $firstNumber / $secondNumber;
-            echo "Výsledek: " . $vysledek;
-        }
+        
         ?>
 
     </main>
 
 </body>
 </html>
+
